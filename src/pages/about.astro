@@ -1,5 +1,18 @@
 ---
+const pageTitle = "遅蒔文庫について";
 
+const identity = {
+    firstname: "おそまきぶんこ",
+    country: "日本（ただし潜在的コスモポリタニストとして）",
+    occupation: "イラストレーター",
+    hobbies: ["創作", "コーヒー", "哲学"],
+};
+
+const skills = ["デジタルイラスト", "キャラクター", "背景", "漫画"]
+
+const happy = true;
+const finished = false;
+const goal = 3;
 ---
 
 <html lang="en">
@@ -8,7 +21,7 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>{pageTitle}</title>
 	</head>
 	<body>
         <a href="/">ホーム</a>
@@ -16,11 +29,28 @@
         <a href="/blog/">ブログ</a>
 		<h1>遅蒔文庫のAstroサイトだよ～</h1>
         <br>
-        <h1>遅蒔文庫について</h1>
+        <h1>{pageTitle}</h1>
+        <p>プロフィール</p>
+        <ul>
+            <li>名前の読み方：{identity.firstname}</li>
+            <li>居住地：{identity.country}</li>
+            <li>肩書：{identity.occupation}</li>
+            {identity.hobbies.length >= 3 &&
+              <li>私の2つの趣味は{identity.hobbies[0]}と{identity.hobbies[1]}です。</li>
+            }
+        </ul>
+        <p>私のスキルは以下の通りです。</p>
+        <ul>
+            {skills.map((skill) => <li>{skill}</li>)}
+        </ul>
         <h2>... そして遅蒔文庫の新しい個人HPについて</h2>
 
         <p>私はastroの入門チュートリアルを進めています。このページは私のHPの2番目のページです。</p>
         
         <p>このサイトはチュートリアルを進めるにつれて更新されていきます。たまに覗きにくると様相が変わっているかも。</p>
+        <br>
+        {happy && <p>I am happy to be learning Astro!　Astroを学べて幸せです！</p>}
+        {finished && <p>I finished this tutorial!　このチュートリアルを終えました！</p>}
+        {goal === 3 ? <p>My goal is to finish in 3 days.　3日で終えるのが目標です。</p> : <p>Myy goal is not 3 days.　3日が目標ではありません。</p>}
 	</body>
 </html>
