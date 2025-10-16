@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 
 const pageTitle = "ホーム"
 ---
@@ -16,7 +18,7 @@ const pageTitle = "ホーム"
 			.logo {
 				border: solid;
 				width: 100%;
-				text-align:center;
+				text-align: center;
                 font-size: 4rem;
 				font-weight: bold;
 				padding-bottom: 10px;
@@ -25,11 +27,12 @@ const pageTitle = "ホーム"
 	</head>
 	<body>
 		<div class="menu">
-			<a href="/">ホーム</a>
-        	<a href="/about/">概要</a>
-			<a href="/blog/">ブログ</a>
+			<Header />
 		</div>
 
-		<div class="logo">遅蒔文庫のAstroサイトだよ～</div>
+		<div class="logo">
+			遅蒔文庫のAstroサイトだよ～
+		</div>
+		<Footer />
 	</body>
 </html>
